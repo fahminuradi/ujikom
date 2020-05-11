@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Grade;
 
 class GradeController extends Controller
 {
@@ -13,9 +14,9 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        $grades = Grade::all();
+        return view('grade.index', compact('grades'));
     }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -23,7 +24,8 @@ class GradeController extends Controller
      */
     public function create()
     {
-        //
+        $Grade = new Grade();
+        return view('grade.create');
     }
 
     /**
@@ -34,7 +36,12 @@ class GradeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_kelas' => 'required',
+            'kompetensi_keahlian' => 'required'
+        ]);
+        Grade::create($request->all());
+        return redirect('grade')->with('success');
     }
 
     /**
@@ -56,7 +63,8 @@ class GradeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $grade = Grade::find($id);
+        return view('grade.edit', compact('grade'));
     }
 
     /**
@@ -68,7 +76,15 @@ class GradeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_kelas' => 'required',
+            'kompetensi_keahlian' => 'required'
+        ]);
+        $grade = Grade::find($id);
+        $grade->nama_kelas = $request->get('nama_kelas');
+        $grade->kompetensi_keahlian = $request->get('kompetensi_keahlian');
+        $grade->save();
+        return redirect()->route('grade.index');
     }
 
     /**
@@ -79,6 +95,7 @@ class GradeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Grade::destroy($id);
+        return redirect('/grade');
     }
 }

@@ -18,14 +18,14 @@ class CreateStudentsTable extends Migration
             $table->string('nisn')->unique();
             $table->string('nis');
             $table->string('nama');
-            $table->integer('id_kelas')->unsigned();
+            $table->integer('grade_id')->unsigned();
             $table->text('alamat');
             $table->string('no_telp');
             $table->integer('id_spp')->unsigned();
             $table->timestamps();
 
 
-            $table->foreign('id_kelas')->references('id')->on('grades')->onDelete('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
             $table->foreign('id_spp')->references('id')->on('spps')->onDelete('cascade');
         });
     }

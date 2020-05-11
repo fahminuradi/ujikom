@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Spp;
 
 class SppController extends Controller
 {
@@ -13,7 +14,8 @@ class SppController extends Controller
      */
     public function index()
     {
-        //
+        $spps = Spp::all();
+        return view ('spp.index', compact('spps'));
     }
 
     /**
@@ -23,7 +25,8 @@ class SppController extends Controller
      */
     public function create()
     {
-        //
+        $Spp = new Spp();
+        return view('spp.create');
     }
 
     /**
@@ -34,7 +37,12 @@ class SppController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tahun' => 'required',
+            'nominal' => 'required'
+        ]);
+        Spp::create($request->all());
+        return redirect('/spp')->with('success');
     }
 
     /**
@@ -56,7 +64,8 @@ class SppController extends Controller
      */
     public function edit($id)
     {
-        //
+        $spp = Spp::find($id);
+        return view('spp.edit', compact('spp'));
     }
 
     /**
@@ -68,7 +77,15 @@ class SppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'tahun' => 'required',
+            'nominal' => 'required'
+        ]);
+        $spp = Spp::find($id);
+        $spp->tahun = $request->get('tahun');
+        $spp->nominal = $request->get('nominal');
+        $spp->save();
+        return redirect()->route('spp.index');
     }
 
     /**
@@ -79,6 +96,7 @@ class SppController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Spp::destroy($id);
+        return redirect('/spp');
     }
 }

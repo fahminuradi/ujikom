@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
+use App\Grade;
+use App\Spp;
 
 class StudentController extends Controller
 {
@@ -11,9 +14,9 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index(){
+        $students = Student::all();
+        return view('student.index', compact('students'));
     }
 
     /**
@@ -23,7 +26,10 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        $student = new Student();
+        $grades = Grade::all();
+        $spps = Spp::all();
+        return view('student.create', compact('student','grades','spps'));
     }
 
     /**
@@ -34,7 +40,27 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'grade.id' => 'required',
+        //     'nisn' => 'required',
+        //     'nis' => 'required',
+        //     'nama' => 'required',
+        //     'no_telp' => 'required',
+        //     'alamat' => 'required'
+        // ]);
+
+        Student::create([
+            'grade_id' => $request->grade_id,
+            'nisn' => $request->nisn,
+            'nis' => $request->nis,
+            'nama' => $request->nama,
+            'no_telp' => $request->no_telp,
+            'alamat' => $request->alamat,
+            'id_spp' => $request->id_spp,
+        ]);
+
+        
+        return redirect('student')->with('success');
     }
 
     /**
@@ -45,7 +71,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**
@@ -56,7 +82,10 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        $spps = Spp::all();
+        $grades = Grade::all();
+        return view('student.edit', compact('student', 'grades', 'spps'));
     }
 
     /**
@@ -68,7 +97,10 @@ class StudentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student = Student::find($id);
+        $student->update($request->all());
+        $request->session();
+        return redirect('student');
     }
 
     /**
@@ -79,6 +111,7 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        Student::destroy($id);
+        return redirect('/student');
+    } 
 }
