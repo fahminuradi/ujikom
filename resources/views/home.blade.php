@@ -1,66 +1,96 @@
 @extends('layouts.index')
 
 @section('content')
-<div class="content">
-    <div class="box">
-        <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-dashboard"></i> Selamat Datang! Anda masuk sebagai <a href="#">{{auth::user()->name}}</a></h3>
-        </div>
-        <div class="box-body">
+    
+<div class="col-xl-12 col-lg-2">
+  <div class="card shadow mb-2">
+    <!-- Card Header - Dropdown -->
+
+    <!-- Card Body -->
+    <div class="card-body">
+      <div class="chart-area">
         <div class="row">
-            <div class="col-lg-6 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-aqua">
-                <div class="inner">
-                  <h3>2.660</h3>
-                  <p>Jumlah Siswa</p>
+        
+          <!-- Jumlah Siswa Card Example -->
+          <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Jumlah Siswa</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $student->count() }} <sup>orang</sup></div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fa fa-user fa-2x text-gray-300"></i>
+                  </div>
                 </div>
-                <div class="icon">
-                  <i class="fa fa-user"></i>
-                </div>
-                <a href="#" class="small-box-footer">selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-6 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-green">
-                <div class="inner">
-                  <h3><sup style="font-size: 20px">Rp.</sup>275.000,.</h3>
-                  <p>Nominal SPP Tahun Ini</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-dollar"></i>
-                </div>
-                <a href="#" class="small-box-footer">selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-6 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-yellow">
-                <div class="inner">
-                  <h3>50</h3>
-                  <p>Jumlah Rombel kelas</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-list"></i>
-                </div>
-                <a href="#" class="small-box-footer">selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
-              </div>
-            </div><!-- ./col -->
-            <div class="col-lg-6 col-xs-6">
-              <!-- small box -->
-              <div class="small-box bg-red">
-                <div class="inner">
-                  <h3>Riwayat Pembayaran</h3>
-                  <p><i class="fa fa-ban"></i> Hanya admin yang masuk!</p>
-                </div>
-                <div class="icon">
-                  <i class="fa fa-credit-card"></i>
-                </div>
-                <a href="#" class="small-box-footer">selengkapnya <i class="fa fa-arrow-circle-right"></i></a>
               </div>
             </div>
+          </div>
+          <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card border-left-success shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">History Pembayaran</div>
+                    <div class="h5 mb-0 font-weight-bold text-gray-800">{{$payment->count()}} orang sudah bayar</div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-history fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah Kelas</div>
+                    <div class="row no-gutters align-items-center">
+                      <div class="col-auto">
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $grade->count() }}</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-tags fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+                    
+                      <!-- Pending Requests Card Example -->
+          <div class="col-xl-6 col-md-6 mb-4">
+            <div class="card border-left-info shadow h-100 py-2">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">SPP Belum Lunas Bulan Ini</div>
+                    <div class="row no-gutters align-items-center">
+                      <div class="col-auto">
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                      </div>
+                      <div class="col">
+                        <div class="progress progress-sm mr-2">
+                          <div class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-auto">
+                    <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 @endsection

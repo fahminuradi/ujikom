@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Register Admin') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -34,6 +34,24 @@
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Level') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="level" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}">							
+                                    <option value="">Silahkan Pilih</option>											
+                                    <option value="admin">admin</option>
+                                    <option value="petugas">petugas</option>
+                                </select>
+
+                                @if ($errors->has('level'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('level') }}</strong>
                                     </span>
                                 @endif
                             </div>

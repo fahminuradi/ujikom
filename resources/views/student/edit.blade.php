@@ -1,19 +1,17 @@
 @extends('layouts.index')
 
 @section('content')
-    <div class="row">
-        <div class="col-md-10">
-            <div class="col-md-10 mt-6">
-            <hr>
+    <div class="col-xl-12 col-lg-12">
+        <div class="card shadow mb-12">
+            <div class="card-body">
+
             {!! Form::model($student, ['route' => ['student.update',$student->id], 'method'=>'PUT']) !!}
             @include('student.field')
-            {!! Form::submit('Update', ['class'=>'btn btn-primary']) !!}
-            {!! link_to('/student', 'Back',['class'=>'btn btn-success']) !!}
+            <button type="submit" class="btn btn-primary"><i class="fa fa-refresh"></i> Ubah</button>
             {!! Form::close() !!}
-
-
-            </div>        
-        </div>    
+            
+            </div>
+        </div>
     </div>
         
 @endsection

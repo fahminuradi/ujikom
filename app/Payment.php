@@ -12,9 +12,9 @@ class Payment extends Model
     {
         return $this->belongsTo(Student::class);
     }
+
     public function spp()
     {
         return $this->belongsTo(Spp::class);
     }
-
 }

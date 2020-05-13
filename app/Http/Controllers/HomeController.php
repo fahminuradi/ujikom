@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Spp;
+use App\Student;
+use App\Payment;
+use App\Grade;
 
 class HomeController extends Controller
 {
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $student = new Student();
+        $spp = new Spp();
+        $grade  = new Grade();
+        $payment = new Payment();
+        return view('home', compact('student','spp','grade','payment'));
     }
 }

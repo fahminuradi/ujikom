@@ -1,12 +1,9 @@
 @extends('layouts.index')
 @section('content')
-<div class="content">
-<div class="box">
-  <div class="box-header with-border">
-    <h3 class="box-title"><i class="fa fa-database"> Data Siswa</i></h3>
-  </div>
-  <div class="box-body">
-    <table class="table table-bordered">
+<div class="col-xl-12 col-lg-2">
+    <div class="card shadow mb-12">
+        <div class="card-body">
+        <table class="table table-hover">
       <tr>
         <th style="width: 10%">NIS</th>
         <th style="width: 150px">Nama Siswa</th>
@@ -21,7 +18,7 @@
         <td>
 	  	  	  <form action="{{ route('student.destroy', $student->id) }}" method="post">
 	  	  	  	<a class="btn btn-sm btn-success" href="{{route('student.show',$student->id)}}"><i class="fa fa-eye"></i></a>
-	  	  	  	<a class="btn btn-sm btn-warning" href="{{route('student.edit',$student->id)}}"><i class="fa fa-pencil"></i></a>
+	  	  	  	<a class="btn btn-sm btn-warning" href="{{route('student.edit',$student->id)}}"><i class="fa fa-edit"></i></a>
 	  	  	  	@csrf
 	  	  	  	@method('DELETE')
 	  	  	  	<button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
@@ -29,5 +26,7 @@
       </tr>
       @endforeach
     </table>
-  </div>
+        </div>
+    </div>
+</div>  
 @endsection

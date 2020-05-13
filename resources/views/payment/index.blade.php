@@ -1,27 +1,30 @@
 @extends('layouts.index')
 @section('content')
-<div class="content">
-    <div class="box">
-        <div class="box-header with-border">
-            <h3 class="box-title"><i class="fa fa-paypal"></i> Data Pembayaran</h3>
-        </div>
-        <div class="box-body">
-            <table class="table table-bordered">
+<div class="col-xl-12 col-lg-2">
+    <div class="card shadow mb-">
+        <div class="card-body">
+
+        <table class="table table-hover">
             <tr>
-                <th style="width: 10%">NIS</th>
-                <th style="width: 40%">Nama Lengkap</th>
-                <th style="width: 40%">Kelas</th>
-                <th style="width: 10%">Aksi</th>
+                <th style="width:5%">No</th>
+                <th>NIS</th>
+                <th>Nama Lengkap</th>
+                <th>Kelas</th>
+                <th>Jumlah Bayar</th>
+                <th>Tanggal Bayar</th>
             </tr>
-            @foreach ($students as $pay)
+            @foreach($payments as $pay)
             <tr>
-                <td>{{$pay->nis}}</td>
-                <td>{{$pay->nama}}</td>
-                <td>{{$pay->grade->nama_kelas}}</td>
-                <td><a href="#" class="btn btn-primary"><i class="fa fa-eye"></i> Lihat</a></td>
+                <td>{{++$i}}</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
+                <td>test</td>
             </tr>
             @endforeach
             </table>
+
         </div>
     </div>
 </div>

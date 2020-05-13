@@ -16,8 +16,8 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        $students = Student::all();
-        return view('payment.index', compact('students'));
+        $payments = Payment::all();
+        return view('payment.index', compact('payments'))->with('i');
 
     }
 
@@ -28,7 +28,10 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        return view('payment.create');
+        $payment = new Payment();
+        $students = Student::all();
+        $spps = Spp::all();
+        return view('payment.create', compact('payment','students','spps'));
     }
 
     /**
@@ -39,7 +42,14 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Payment::create([
+            'id_student' => $request->id_student,
+            'tanggal' => $request->tanggal,
+            'bulan' => $request->bulan,
+            'jumlah' => $request->jumlah,
+            'id_spp' => $request->id_spp
+        ]);
+        return redirect('/payment');
     }
 
     /**
@@ -50,10 +60,10 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        $student = Student::all();
-        $spp = Spp::all();
-        $payment = Payment::all();
-        return view('payment.show', compact('student','spp','payment'));
+        // $student = Student::all();
+        // $spp = Spp::all();
+        // $payment = Payment::all();
+        // return view('payment.show', compact('student','spp','payment'));
     }
 
     /**

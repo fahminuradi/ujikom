@@ -18,7 +18,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('id_student')->unsigned();
             $table->date('tanggal');
             $table->string('bulan');
-            $table->string('status');
+            $table->string('jumlah');
             $table->integer('id_spp')->unsigned();
             $table->timestamps();
 
