@@ -59,6 +59,17 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePetugas" aria-expanded="true"
+          aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-user-secret"></i>
+          <span>Data Petugas</span>
+        </a>
+        <div id="collapsePetugas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <a class="collapse-item" href="/student/create"><i class="fa fa-user-plus"></i> Tambah Siswa</a>
+            <a class="collapse-item" href="/student"><i class="fa fa-bars"></i> Data Siswa</a>
+          </div>
+        </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
           aria-controls="collapseTwo">
           <i class="fas fa-fw fa-users"></i>
