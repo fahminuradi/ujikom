@@ -13,6 +13,11 @@ class Student extends Model
         return $this->belongsTo(Grade::class);
     }
 
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
+    }
+
     public function spp()
     {
         return $this->belongsTo(Spp::class);

@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Administrator Area</title>
+  <title>Halaman Laporan Pembayaran Siswa</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('asset/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -29,114 +29,6 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
-      <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-dollar fa-spin"></i>
-        </div>
-        <div class="sidebar-brand-text mx-3"><sup>E</sup>SPP Payment</div>
-      </a>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
-
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
-        <a class="nav-link" href="/admin">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Overview
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePetugas" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-user-secret"></i>
-          <span>Data Petugas</span>
-        </a>
-        <div id="collapsePetugas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/petugas/create"><i class="fa fa-user-plus"></i> Tambah Petugas</a>
-            <a class="collapse-item" href="/petugas"><i class="fa fa-bars"></i> Data Petugas</a>
-          </div>
-        </div>
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-users"></i>
-          <span>Siswa</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/student/create"><i class="fa fa-user-plus"></i> Tambah Siswa</a>
-            <a class="collapse-item" href="/student"><i class="fa fa-bars"></i> Data Siswa</a>
-          </div>
-        </div>
-      </li>
-      
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true"
-          aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-graduation-cap"></i>
-          <span>Kelas</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/grade/create"><i class="fa fa-plus"></i> Tambah Kelas</a>
-            <a class="collapse-item" href="/grade"><i class="fa fa-bars"></i> Daftar Kelas</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDaftar" aria-expanded="true"
-          aria-controls="collapseDaftar">
-          <i class="fas fa-fw fa-money"></i>
-          <span>SPP</span>
-        </a>
-        <div id="collapseDaftar" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/spp/create"><i class="fa fa-plus"></i> Tambah Nominal</a>
-            <a class="collapse-item" href="/spp"><i class="fa fa-bars"></i> List Nominal</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/payment/create">
-          <i class="fas fa-fw fa-dollar"></i>
-          <span>Pembayaran</span></a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="/payment">
-          <i class="fas fa-fw fa-history"></i>
-          <span>History Pembayaran</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/print">
-          <i class="fas fa-fw fa-file"></i>
-          <span>Laporan</span></a>
-      </li>
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-    </ul>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -146,8 +38,9 @@
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
+        <nav class="navbar navbar-expand navbar-light bg-gradient bg-primary topbar mb-4 static-top shadow">
+        <div class="sidebar-brand-text mx-3 text-white"><i class="fa fa-dollar"></i><sup> E</sup>SPP Payment</div>
+          
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
@@ -159,7 +52,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{Auth::user()->name}}</span>
+                <span class="btn btn-danger">Logout</span>
               </a>
               <!-- Dropdown - User Information -->
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -202,7 +95,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy;  Fahmi Nuradi - Reza Pebriansyah &middot; 2020 </span>
+            <span>Copyright &copy; Ujikom RPL - 2020 &middot; Fahmi Nuradi - Reza Pebriansyah</span>
           </div>
         </div>
       </footer>

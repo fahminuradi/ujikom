@@ -29,3 +29,12 @@ form{
     width: 100%;
     padding-top: 5%;
 }
+.form{
+    background: transparent;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid 1px #0004ff80;
+    width: 100%;
+    outline: transparent;
+}

@@ -1,4 +1,4 @@
-@extends('layouts.index')
+@extends('layouts.index2')
 @section('content')
 <div class="col-xl-12 col-lg-2">
     <div class="card shadow mb-">

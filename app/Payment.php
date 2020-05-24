@@ -10,7 +10,7 @@ class Payment extends Model
 
     public function student()
     {
-        return $this->belongsTo(Student::class);
+        return $this->belongsTo('App\Student', 'id_student');
     }
 
     public function spp()

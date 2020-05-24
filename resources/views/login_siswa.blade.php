@@ -11,6 +11,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="{{asset('welcome/css/style.css')}}">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
     <section id="navbar">
@@ -29,50 +30,32 @@
                             Aplikasi Pembayaran SPP Online
                         </div>
                         <div class="col-md-12">
-                            Login Untuk Admin dan Petugas
+                            Login Untuk Siswa
                         </div>
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <input id="email" type="email" class="form{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus placeholder="Masukan Almat E-Mail">
-
-                                @if ($errors->has('email'))
+                        <form method="POST" action="{{ url('halaman_siswa') }}">
+                          @csrf
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form {{ $errors->has('nis') ? ' is-invalid' : '' }}" name="nis" value="{{ old('nis') }}" required autofocus placeholder="Masukan NIS Anda">
+                                </div>
+                              </div>
+                              <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <input type="text" class="form {{ $errors->has('nama') ? ' is-invalid' : '' }}" name="nama" value="{{ old('nama') }}" required autofocus placeholder="Masukan Nama Lengkap Anda">
+                                </div>
+                                @if ($errors->has('nama'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
+                                        <strong>{{ $errors->first('nama') }}</strong>
                                     </span>
                                 @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-
-                            <div class="col-md-12">
-                                <input id="password" type="password" class="form{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required placeholder="Password">
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-4 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                              </div>
+                            <button type="submit" class="btn btn-primary">Masuk</button>
+                        </form>
                         <div class="card-footer alert-success">
                             <i class="fa fa-facebook"></i>
                             <i class="fa fa-instagram"></i>
                             <i class="fa fa-youtube-play"></i>
                             <i class="fa fa-google-plus"></i>
-
                         </div>
                     </div>
                 </div>

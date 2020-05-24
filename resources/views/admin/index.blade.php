@@ -1,4 +1,4 @@
-@extends('layouts.index2')
+@extends('layouts.index')
 
 @section('content')
     
@@ -9,7 +9,7 @@
     <!-- Card Body -->
     <div class="card-body">
       <div class="chart-area">
-      <h3><i class="fa fa-bullhorn"></i> Pusat Informasi dan Control Aplikasi - Halaman Petugas</h3><hr>
+      <h3><i class="fa fa-bullhorn"></i> Pusat Informasi dan Control Aplikasi - Halaman Administrator</h3><hr>
         <div class="row">
           <!-- Jumlah Siswa Card Example -->
           <div class="col-xl-6 col-md-6 mb-4">

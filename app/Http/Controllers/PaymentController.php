@@ -14,10 +14,16 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $payments = Payment::all();
-        return view('payment.index', compact('payments'))->with('i');
+        $payments = Payment::latest()->paginate(5);
+        return view('payment.index', compact('payments'))
+        ->with('i', (request()->input('page', 1)-1)*5);
 
     }
 
@@ -60,10 +66,22 @@ class PaymentController extends Controller
      */
     public function show($id)
     {
-        // $student = Student::all();
-        // $spp = Spp::all();
-        // $payment = Payment::all();
-        // return view('payment.show', compact('student','spp','payment'));
+        $payment = Payment::find($id);
+        return view('payment.show', compact('payment'));
+    }
+
+    public function employe()
+    {
+        $payments = Payment::latest()->paginate(5);
+        return view('payment.employe', compact('payments'))
+        ->with('i', (request()->input('page', 1)-1)*5);
+    }
+    public function cetak()
+    {
+        $student = Student::all();
+        $spp = Spp::all();
+        $payment = Payment::all();
+        return view('payment.print', compact('student','spp','payment'))->with('i');
     }
 
     /**

@@ -5,7 +5,7 @@
         <div class="card-body">
         {{ Form::open(['url' => ['student']]) }}
         @include('student.field')
-        <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Tambah</button>
+        <button type="submit" class="btn btn-success"><i class="fa fa-plus"></i> Tambah</button>
         {{ Form::close() }}
         </div>
     </div>

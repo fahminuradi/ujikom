@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="card">
-                        <form>
+                        <form method="POST" action="{{ url('siswa') }}">
                             <div class="form-group row">
                                 <label for="colFormLabelSm" class="col-sm-2 col-form-label">NIS</label>
                                 <div class="col-sm-10">

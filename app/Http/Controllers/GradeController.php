@@ -12,10 +12,14 @@ class GradeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
-        $grades = Grade::all();
-        return view('grade.index', compact('grades'));
+        $grades = Grade::latest()->paginate(5);
+        return view('grade.index', compact('grades'))->with('i', (request()->input('page',1)-1)*5);
     }
     /**
      * Show the form for creating a new resource.
@@ -24,7 +28,7 @@ class GradeController extends Controller
      */
     public function create()
     {
-        $Grade = new Grade();
+        $grade = new Grade();
         return view('grade.create');
     }
 

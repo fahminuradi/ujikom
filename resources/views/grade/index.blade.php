@@ -3,16 +3,18 @@
 <div class="col-xl-12 col-lg-2">
     <div class="card shadow mb-">
         <div class="card-body">
-
-        <table class="table table-hover">
+        <h3><i class="fa fa-graduation-cap"></i> Data kelas</h3><hr>
+        <table class="table table-hover text-center">
           <tr>
-            <th style="width: 150px">Kelas</th>
-            <th style="width: 150px">Kompetensi Keahlian</th>
-            <th style="width: 40px">Aksi</th>
+            <th >No</th>
+            <th>Kelas</th>
+            <th>Kompetensi Keahlian</th>
+            <th>Aksi</th>
           </tr>
           <tr>
           @foreach ($grades as $grade)
             <tr>
+              <td>{{++$i}}</td>
               <td>{{$grade->nama_kelas}}</td>
               <td>{{$grade->kompetensi_keahlian}}</td>
               <td>
@@ -27,7 +29,7 @@
           @endforeach	
           </tr>
         </table>
-
+        {!! $grades->links() !!}
         </div>
     </div>
 </div>        

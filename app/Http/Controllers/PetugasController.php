@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Spp;
+use App\User;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
-class SppController extends Controller
+class PetugasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +20,9 @@ class SppController extends Controller
     }
     public function index()
     {
-        $spps = Spp::latest()->paginate(3);
-        return view('spp.index', compact('spps'))
-        ->with('i', (request()->input('page', 1)-1)*3);
+        $users = User::latest()->paginate(5);
+        return view('petugas.index', compact('users'))
+        ->with('i', (request()->input('page',1) -1)*5);
     }
 
     /**
@@ -30,8 +32,8 @@ class SppController extends Controller
      */
     public function create()
     {
-        $Spp = new Spp();
-        return view('spp.create');
+        $user = new User();
+        return view('/petugas/create');
     }
 
     /**
@@ -42,12 +44,12 @@ class SppController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'tahun' => 'required',
-            'nominal' => 'required'
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request['password'])
         ]);
-        Spp::create($request->all());
-        return redirect('/spp')->with('success');
+        return redirect('petugas')->with('success');
     }
 
     /**
@@ -69,8 +71,7 @@ class SppController extends Controller
      */
     public function edit($id)
     {
-        $spp = Spp::find($id);
-        return view('spp.edit', compact('spp'));
+        //
     }
 
     /**
@@ -82,15 +83,7 @@ class SppController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'tahun' => 'required',
-            'nominal' => 'required'
-        ]);
-        $spp = Spp::find($id);
-        $spp->tahun = $request->get('tahun');
-        $spp->nominal = $request->get('nominal');
-        $spp->save();
-        return redirect()->route('spp.index');
+        //
     }
 
     /**
@@ -101,7 +94,6 @@ class SppController extends Controller
      */
     public function destroy($id)
     {
-        Spp::destroy($id);
-        return redirect('/spp');
+        //
     }
 }

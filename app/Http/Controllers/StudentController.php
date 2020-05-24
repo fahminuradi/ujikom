@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Grade;
+use App\Payment;
 use App\Spp;
 
 class StudentController extends Controller
@@ -14,9 +15,14 @@ class StudentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index(){
-        $students = Student::all();
-        return view('student.index', compact('students'));
+        $students = Student::latest()->paginate(3);
+        return view('student.index', compact('students'))
+        ->with('i', (request()->input('page', 1)-1)*3);
     }
 
     /**

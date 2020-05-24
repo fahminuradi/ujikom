@@ -9,7 +9,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Administrator Area</title>
+  <title>Halaman Petugas</title>
+  
 
   <!-- Custom fonts for this template-->
   <link href="{{asset('asset/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
@@ -57,69 +58,9 @@
         Overview
       </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
+      <!-- Nav Item - Pages Collapse Menu -->      
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePetugas" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-user-secret"></i>
-          <span>Data Petugas</span>
-        </a>
-        <div id="collapsePetugas" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/petugas/create"><i class="fa fa-user-plus"></i> Tambah Petugas</a>
-            <a class="collapse-item" href="/petugas"><i class="fa fa-bars"></i> Data Petugas</a>
-          </div>
-        </div>
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
-          aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-users"></i>
-          <span>Siswa</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/student/create"><i class="fa fa-user-plus"></i> Tambah Siswa</a>
-            <a class="collapse-item" href="/student"><i class="fa fa-bars"></i> Data Siswa</a>
-          </div>
-        </div>
-      </li>
-      
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true"
-          aria-controls="collapseUtilities">
-          <i class="fas fa-fw fa-graduation-cap"></i>
-          <span>Kelas</span>
-        </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/grade/create"><i class="fa fa-plus"></i> Tambah Kelas</a>
-            <a class="collapse-item" href="/grade"><i class="fa fa-bars"></i> Daftar Kelas</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDaftar" aria-expanded="true"
-          aria-controls="collapseDaftar">
-          <i class="fas fa-fw fa-money"></i>
-          <span>SPP</span>
-        </a>
-        <div id="collapseDaftar" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="/spp/create"><i class="fa fa-plus"></i> Tambah Nominal</a>
-            <a class="collapse-item" href="/spp"><i class="fa fa-bars"></i> List Nominal</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="/payment/create">
-          <i class="fas fa-fw fa-dollar"></i>
-          <span>Pembayaran</span></a>
-      </li>
-      
-      <li class="nav-item">
-        <a class="nav-link" href="/payment">
+        <a class="nav-link" href="/employe">
           <i class="fas fa-fw fa-history"></i>
           <span>History Pembayaran</span></a>
       </li>

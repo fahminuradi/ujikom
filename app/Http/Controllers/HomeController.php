@@ -7,6 +7,7 @@ use App\Spp;
 use App\Student;
 use App\Payment;
 use App\Grade;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $spp = new Spp();
         $grade  = new Grade();
         $payment = new Payment();
-        return view('home', compact('student','spp','grade','payment'));
+        $user = new User();
+        return view('home', compact('student','spp','grade','payment','user'))->with('i');
     }
 }

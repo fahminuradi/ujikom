@@ -13,7 +13,7 @@
                 <th>Jumlah Bayar</th>
                 <th>Tanggal Bayar</th>
             </tr>
-            @foreach($payments as $pay)
+            @foreach($payment as $pay)
             <tr>
                 <td>{{++$i}}</td>
                 <td>{{$pay->student->nis}}</td>

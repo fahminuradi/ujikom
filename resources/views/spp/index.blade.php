@@ -3,16 +3,18 @@
 <div class="col-xl-12 col-lg-2">
     <div class="card shadow mb-">
         <div class="card-body">
-
-        <table class="table table-hover">
+        <h3><i class="fa fa-money"></i> Nominal Pembayaran SPP</h3><hr>
+        <table class="table table-hover text-center">
           <tr>
-            <th style="width: 150px">Tahun</th>
-            <th style="width: 150px">Nominal</th>
-            <th style="width: 40px">Aksi</th>
+            <th>No</th>
+            <th>Tahun</th>
+            <th>Nominal</th>
+            <th>Aksi</th>
           </tr>
           <tr>
           @foreach ($spps as $spp)
             <tr>
+              <td>{{++$i}}</td>
               <td>{{$spp->tahun}}</td>
               <td>Rp. {{$spp->nominal}}</td>
               <td>
@@ -25,9 +27,8 @@
               </td>
             </tr>
           @endforeach	
-          </tr>
         </table>
-
+        {!!$spps->links()!!}
         </div>
     </div>
 </div>        

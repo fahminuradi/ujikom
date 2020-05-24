@@ -12,7 +12,7 @@
           <label>Nominal</label>
           <input type="text" name="nominal" class="form-control" value="{{$spp->nominal}}">
           <hr>
-          <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-refresh"></i> Tambahkan</button>
+          <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-refresh"></i> Ubah</button>
         </div>
     </div>
 </div>        
